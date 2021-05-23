@@ -1,0 +1,7 @@
+@import "variables";
+
+@mixin dynamic-padding($padding) {
+    .container {
+        padding: 0 $padding;
+    }
+}

@@ -1,0 +1,391 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+body, button {
+    margin: 0;
+    font-family: "Cabin" !important;
+}
+
+.topHeader {
+    background: $dark;
+    color: $white;
+    padding: 10px;
+    text-align: center;
+    > span {
+        text-decoration-line: underline;
+        text-emphasis-color: $white;
+    }
+}
+
+.introHeader {
+    background: $grey;
+    color: $text-black;
+    padding: clamp(20px, 4vw, 40px) 0;
+    .brand {
+        font-size: clamp(20px, 1vw, 30px);
+        font-weight: bold;
+    }
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    > * {
+        flex: 4;
+    }
+}
+
+nav {
+    margin-bottom: 40px;
+}
+
+#menu {
+    display: none;
+}
+
+.imgContainer {
+    min-height: 530px;
+    background-image: url('../images/Hero\ Image.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    flex: 0 0 auto;
+    width: 469px;
+}
+
+ul {
+    color: $text-black;
+    list-style-type: none;
+    padding: 0;
+    li {
+        padding-left: 18px;
+        position: relative;
+        margin: 5px 0;
+        &::before {
+            content: " ";
+            background-image: url('../images/Checkmark.svg');
+            background-size: $icon-size $icon-size;
+            width: $icon-size;
+            height: $icon-size;
+            position: absolute;
+            left: 0;
+        }
+    }
+}
+
+input {
+    border: 1px solid $grey;
+    &::placeholder {
+        color: $grey;
+    }
+    padding: 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.startedButton {
+    border-radius: 4px;
+    background: $dark;
+    transition: 0.25s all;
+    border: 1px solid $dark;
+    padding: 10px;
+    color: $white;
+    cursor: pointer;
+    &:hover {
+        color: $dark;
+        background: $white;
+    }
+}
+
+.logoContainer {
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 50px;
+    > img {
+        width: 100%;
+        max-width: 100px;
+    }
+}
+
+.escrowContainer {
+    background: $grey;
+    padding: 60px 40px 80px;
+    border-radius: 10px;
+    > div {
+        width: 50%;
+        flex: 0 1 50%;
+    }
+    background-image: url('../images/Phone Mockup.png');
+    background-repeat: no-repeat;
+    background-size: 100% 85%;
+    background-position: 10px bottom;
+}
+
+h3.sectionTitle {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.escrowWrapper {
+    > div:nth-child(2) {
+        line-height: 1.6;
+        font-size: 18px;
+        margin: 10px 0;
+    }
+}
+
+.editorContainer {
+    > * {
+        width: 50% !important;
+    }
+    > img {
+        width: 100%;
+    }
+    > div {
+        line-height: 1.8;
+        font-size: 18px;
+        margin: 10px 0;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+.textBtn {
+    color: $text-black;
+    text-decoration-line: underline;
+    font-size: 16px;
+    transition: 0.25s all;
+    &::after {
+        transition: 0.25s all;
+        content: '\2192';
+        position: absolute;
+        transform: translateX(0px);
+    }
+    &:hover::after {
+        transform: translateX(5px);
+    }
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.introContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+    h1 {
+        color: $dark;
+        font-size: 3rem;
+    }
+}
+
+footer {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    padding: 0 3rem;
+    color: $white;
+    background: $dark;
+    padding: 3rem $padding-horizontal;
+}
+
+.footerMain {
+    grid-column: 1 / span 3;
+    grid-row: 1 / end;
+    > div {
+        color: $link-white;
+        line-height: 1.8;
+    }
+}
+
+.footerCol {
+    grid-row: 1 / end;
+    display: flex;
+    flex-flow: column;
+    h3 {
+        margin-bottom: 15px; 
+    }
+    a:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    a {
+        text-decoration: none;
+        transition: 0.25s opacity;
+        color: $link-white;
+    }
+    a:hover {
+        opacity: 0.8;
+    }
+}
+
+.rowCenter {
+    display: flex;
+    align-items: center;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.navMenu {
+    a {
+        text-decoration: none;
+        transition: 0.25s opacity;
+        color: $dark;
+        margin: 0 10px;
+    }
+    a:hover {
+        opacity: 0.8;
+    }
+    .textBtn {
+        margin-right: 10px;
+        text-decoration: none;
+    }
+    .textBtn::after {
+        display: none;
+    }
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+@media only screen and (min-width: 992px) {
+    @include dynamic-padding(10%);
+}
+
+@media only screen and (max-width: 992px) {
+    @include dynamic-padding(2rem);
+    .introWrapper {
+        flex-flow: column-reverse;
+        > div {
+            width: 100%;
+        }
+    }
+    .imgContainer {
+        background-size: 100% 130%;
+        flex: 1;
+    }
+    .escrowContainer {
+        background-position: 114% bottom;
+        padding-bottom: 300px;
+        background-size: 161% 55%;
+        > .escrowWrapper {
+            width: 100% !important;
+            flex: 1;
+        }
+    }
+    .logoContainer {
+        overflow-x: scroll;
+        justify-content: flex-start;
+        > img {
+            width: 100px !important;
+            margin-right: 15px;
+        }
+    }
+    .editorContainer {
+        flex-flow: column-reverse;
+        > * {
+            width: 100% !important;
+        }
+    }
+    .footerMain {
+        grid-column: 1 / span 4;
+        grid-row: 1 / 2;
+    }
+    .footerCol {
+        grid-row: 2 / 3;
+        &.first {
+            grid-column: 5 / 6;
+            grid-row: 1 / 2;
+        }
+        &.second {
+            grid-column: 6 / end;
+            grid-row: 1 / 2;
+        }
+    }
+}
+.genericButton {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+    @include dynamic-padding(10px);
+    footer {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .footerMain {
+        grid-row: 1 / 2;
+        grid-column: 1 / end;
+    }
+    .footerCol {
+        &.first {
+            grid-row: 3 / end;
+            grid-column: 1 / 2;
+        }
+        &.second {
+            grid-row: 3 / end;
+            grid-column: 3 / end;
+        }
+        &.third {
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+        }
+        &.fourth {
+            grid-row: 2 / 3;
+            grid-column: 3 / end;
+        }
+    }
+    #menu {
+        display: block;
+        flex: 0;
+    }
+    .navMenu {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 200px;
+        transition: 0.25s all;
+        transform: translateX(100vh);
+        flex: 6;
+        background: white;
+        z-index: 3;
+        display: flex;
+        flex-flow: column;
+        > .rowCenter:first-child {
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-start;
+        }
+        a {
+            margin: 10px 0;
+        }
+        &.between {
+            justify-content: flex-start;
+        }
+    }
+    .navMenu.expand {
+        transform: translateX(0);
+    }
+    #overlay.show {
+        display: block;
+    }
+}
